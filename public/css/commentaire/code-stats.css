@@ -1,0 +1,201 @@
+/* ══════════════════════════════════════════════
+   CODE STATS PAGE
+══════════════════════════════════════════════ */
+
+.cs-page {
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+/* ── Topbar ── */
+.cs-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+.cs-topbar__left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+.cs-topbar__icon {
+    width: 48px; height: 48px;
+    background: linear-gradient(135deg,#6366f1,#8b5cf6);
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 20px;
+    box-shadow: 0 4px 12px rgba(99,102,241,0.3);
+}
+.cs-topbar__title {
+    font-size: 20px; font-weight: 700; color: #1e293b; margin: 0;
+}
+.cs-topbar__sub {
+    font-size: 13px; color: #64748b; margin: 2px 0 0;
+}
+.cs-topbar__right {
+    display: flex; align-items: center; gap: 10px;
+}
+.cs-live-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #dcfce7; color: #16a34a;
+    font-size: 12px; font-weight: 700;
+    padding: 6px 12px; border-radius: 999px;
+}
+.cs-live-dot {
+    width: 8px; height: 8px;
+    background: #16a34a; border-radius: 50%;
+    animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+    0%,100% { opacity:1; transform:scale(1); }
+    50%      { opacity:.5; transform:scale(1.3); }
+}
+.cs-refresh-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #ede9fe; color: #6d28d9;
+    border: none; border-radius: 10px;
+    padding: 8px 16px; font-size: 13px; font-weight: 700;
+    cursor: pointer; transition: all .2s;
+}
+.cs-refresh-btn:hover { background: #6366f1; color: #fff; }
+
+/* ── Stats list (même style que dashboard) ── */
+.cs-stats-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+.cs-stat-item {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    border: 1px solid #f1f5f9;
+    transition: transform .2s;
+}
+.cs-stat-item:hover { transform: translateY(-3px); }
+.cs-stat-icon {
+    width: 48px; height: 48px;
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; flex-shrink: 0;
+}
+.cs-stat-icon--indigo { background: linear-gradient(135deg,#6366f1,#8b5cf6); color: #fff; }
+.cs-stat-icon--blue   { background: linear-gradient(135deg,#3b82f6,#06b6d4); color: #fff; }
+.cs-stat-icon--emerald{ background: linear-gradient(135deg,#10b981,#059669); color: #fff; }
+.cs-stat-icon--orange { background: linear-gradient(135deg,#f59e0b,#f97316); color: #fff; }
+.cs-stat-number {
+    font-size: 24px; font-weight: 800; color: #1e293b; line-height: 1;
+}
+.cs-stat-name {
+    font-size: 13px; color: #64748b; margin-top: 4px; font-weight: 500;
+}
+
+/* ── Charts ── */
+.cs-charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+.cs-chart-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    border: 1px solid #f1f5f9;
+}
+.cs-chart-card__head {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 16px;
+}
+.cs-chart-card__icon {
+    width: 40px; height: 40px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; flex-shrink: 0;
+}
+.cs-chart-card__title {
+    font-size: 15px; font-weight: 700; color: #1e293b; margin: 0;
+}
+.cs-chart-card__sub {
+    font-size: 12px; color: #94a3b8; margin: 2px 0 0;
+}
+.cs-chart-wrap {
+    position: relative; height: 280px;
+    display: flex; align-items: center; justify-content: center;
+}
+.cs-chart-wrap canvas { max-height: 280px; }
+
+/* ── Table ── */
+.cs-table-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    border: 1px solid #f1f5f9;
+}
+.cs-table-card__head {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 16px;
+}
+.cs-table {
+    width: 100%; border-collapse: collapse;
+}
+.cs-table thead {
+    background: linear-gradient(135deg,#6366f1,#8b5cf6);
+}
+.cs-table thead th {
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 12px; font-weight: 700;
+    color: rgba(255,255,255,0.9);
+    letter-spacing: .5px; text-transform: uppercase;
+}
+.cs-table__row {
+    border-bottom: 1px solid #f1f5f9;
+    transition: background .15s;
+}
+.cs-table__row:hover { background: #f8fafc; }
+.cs-table__row td { padding: 14px 16px; font-size: 14px; }
+.cs-medal { font-size: 22px; }
+.cs-rank-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px;
+    background: #f1f5f9; border-radius: 50%;
+    font-size: 12px; font-weight: 700; color: #64748b;
+}
+.cs-code-chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #ede9fe; color: #6d28d9;
+    padding: 5px 12px; border-radius: 8px;
+    font-size: 13px; font-weight: 700; font-family: monospace;
+}
+.cs-cmd-num { font-weight: 700; font-size: 16px; color: #6366f1; }
+.cs-bar-wrap { display: flex; align-items: center; gap: 8px; min-width: 120px; }
+.cs-bar {
+    flex: 1; height: 8px;
+    background: #f1f5f9; border-radius: 99px; overflow: hidden;
+}
+.cs-bar__fill { height: 100%; border-radius: 99px; transition: width .5s ease; }
+.cs-bar__pct { font-size: 12px; font-weight: 700; color: #64748b; min-width: 38px; }
+
+/* ── État vide ── */
+.cs-empty {
+    text-align: center; padding: 60px 20px;
+    background: #fff; border-radius: 16px;
+    border: 2px dashed #e2e8f0;
+}
+.cs-empty__icon {
+    width: 72px; height: 72px;
+    background: linear-gradient(135deg,#6366f1,#8b5cf6);
+    border-radius: 20px; margin: 0 auto 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 32px; color: #fff;
+}
+.cs-empty__title { font-size: 18px; font-weight: 700; color: #1e293b; margin: 0 0 8px; }
+.cs-empty__sub   { font-size: 14px; color: #64748b; margin: 0; }

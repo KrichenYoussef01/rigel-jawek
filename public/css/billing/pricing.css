@@ -1,0 +1,22 @@
+.pricing-card { 
+    background: rgba(16, 185, 129, 0.05); 
+    border: 1px solid rgba(16, 185, 129, 0.15); 
+    transition: 0.3s; 
+}
+.pricing-card:hover { 
+    border-color: #10b981; 
+    transform: translateY(-10px); 
+}
+.popular-card { 
+    border: 2px solid #8b5cf6; 
+}
+.badge { 
+    position: absolute; 
+    top: -15px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    background: #8b5cf6; 
+    padding: 4px 15px; 
+    border-radius: 20px; 
+    font-size: 12px; 
+}

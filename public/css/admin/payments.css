@@ -1,0 +1,231 @@
+/* ─── Page background ─── */
+.max-w-7xl {
+    background: transparent;
+}
+
+/* ─── Stat cards (remplace les onglets) ─── */
+.border-b.border-gray-200 {
+    border-bottom: none !important;
+    margin-bottom: 1.5rem;
+}
+
+nav.flex.space-x-8 {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 1rem !important;
+}
+
+.tab-button {
+    background: #ffffff;
+    border: 1.5px solid #e5e7eb !important;
+    border-bottom: 1.5px solid #e5e7eb !important;
+    border-radius: 0.75rem !important;
+    padding: 1.25rem 1.25rem 1rem !important;
+    text-align: left !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.25rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    transition: all 0.2s;
+    cursor: pointer;
+    width: 100%;
+    position: relative;
+}
+
+/* Icône colorée en haut à droite de chaque carte */
+.tab-button::after {
+    content: '';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+nav.flex button:nth-child(1)::after { background: #f59e0b; }
+nav.flex button:nth-child(2)::after { background: #10b981; }
+nav.flex button:nth-child(3)::after { background: #ef4444; }
+nav.flex button:nth-child(4)::after { background: #6366f1; }
+
+/* Grand nombre (le span du count) */
+.tab-button span {
+    display: block !important;
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+    color: #1f2937 !important;
+    background: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    margin: 0.25rem 0 0 !important;
+    line-height: 1.1;
+    order: 2;
+}
+
+/* Libellé du statut */
+.tab-button > span:not(:first-child),
+.tab-button {
+    color: #6b7280;
+    font-size: 0.78rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+/* Carte active */
+.tab-button.active {
+    border-color: #6366f1 !important;
+    border-bottom-color: #6366f1 !important;
+    box-shadow: 0 0 0 1px #6366f1, 0 1px 4px rgba(99,102,241,0.15);
+    color: #4f46e5 !important;
+}
+.tab-button.active span {
+    color: #4f46e5 !important;
+}
+
+/* ─── Tableau ─── */
+.payment-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+.payment-table th {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    background: #f9fafb;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #9ca3af;
+    border-bottom: 1px solid #f3f4f6;
+}
+.payment-table td {
+    padding: 0.875rem 1rem;
+    border-bottom: 1px solid #f3f4f6;
+    vertical-align: middle;
+    font-size: 0.875rem;
+    color: #374151;
+}
+.payment-table tr:last-child td {
+    border-bottom: none;
+}
+.payment-table tr:hover td {
+    background: #fafafa;
+}
+
+/* Avatar utilisateur */
+.payment-table td:first-child {
+    display: table-cell;
+}
+.payment-table td:first-child::before {
+    content: attr(data-initial);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #ede9fe;
+    color: #6d28d9;
+    font-size: 0.7rem;
+    font-weight: 700;
+    margin-right: 0.6rem;
+    vertical-align: middle;
+    text-transform: uppercase;
+}
+
+/* Montant en indigo */
+.payment-table td:nth-child(2) {
+    color: #4f46e5;
+    font-weight: 600;
+}
+
+/* ─── Badges de statut (point + texte) ─── */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0;
+    background: none;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border-radius: 0;
+}
+.status-badge::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.status-pending  { color: #b45309; }
+.status-pending::before  { background: #f59e0b; }
+.status-accepted { color: #065f46; }
+.status-accepted::before { background: #10b981; }
+.status-refused  { color: #991b1b; }
+.status-refused::before  { background: #ef4444; }
+.status-suspended { color: #4f46e5; }
+.status-suspended::before { background: #6366f1; }
+
+/* ─── Boutons d'action ─── */
+.payment-table td:last-child .bg-green-600 {
+    background: #10b981 !important;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    padding: 0.35rem 0.9rem;
+    border: none;
+}
+.payment-table td:last-child .bg-red-600 {
+    background: none !important;
+    color: #ef4444;
+    border: 1px solid #fecaca;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    padding: 0.3rem 0.5rem;
+}
+.payment-table td:last-child .bg-yellow-600 {
+    background: #6366f1 !important;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    padding: 0.35rem 0.9rem;
+}
+.payment-table td:last-child .bg-indigo-600 {
+    background: #6366f1 !important;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    padding: 0.35rem 0.9rem;
+}
+
+/* ─── Modale ─── */
+.modal-white {
+    background: white;
+    color: #1f2937;
+    border-radius: 1rem;
+    max-width: 700px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+.modal-white .modal-header {
+    background: #f9fafb;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 1rem 1.5rem;
+    border-radius: 1rem 1rem 0 0;
+}
+.modal-white .modal-body { padding: 1.5rem; }
+.stat-card-white {
+    background: #f9fafb;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid #e5e7eb;
+}
+.detail-row {
+    background: #f9fafb;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
